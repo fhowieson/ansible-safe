@@ -1,6 +1,6 @@
 galaxy_info:
-  author: your name
-  description: your description
+  author: Fen Howieson
+  description: Simple Apache Role
   company: your company (optional)
 
   # If the issue tracker for your role is not on github, uncomment the
@@ -33,6 +33,10 @@ galaxy_info:
   # platforms is a list of platforms, and each platform has a name and a list of versions.
   #
   # platforms:
+  # - name: RHEL
+  #  - 5
+  #  - 6
+  #  - 7
   # - name: Fedora
   #   versions:
   #   - all
