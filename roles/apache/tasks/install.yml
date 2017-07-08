@@ -1,7 +1,11 @@
 ---
 # Installing httpd package
+- name: Check User
+  become: yes
+  become_user: root
+  shell: whoami
+
 - name: Install Apache
   yum:
     name: httpd
     state: latest
-#    become_user: root
