@@ -3,8 +3,7 @@
   - name: httpd.conf file
     copy: src=httpd.conf dest=/etc/httpd/conf/httpd.conf
     notify:
-      restart apahe service
+      restart apache service
 
   - name: send index.html
     copy: scr=index.html dest=/var/www/html/index.html
-  

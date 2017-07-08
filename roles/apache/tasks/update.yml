@@ -1,0 +1,6 @@
+# Check for RHEL updates
+  - name: Make sure all OS patches are applied
+    yum:
+        name: '*'
+        state: latest
+    become_user: root
