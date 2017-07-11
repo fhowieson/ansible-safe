@@ -1,4 +1,6 @@
 ---
 # handlers file for apache
 - name: restart apache service
+  become: yes
+  become_user: root
   service: name=httpd state=restarted
