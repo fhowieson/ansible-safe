@@ -1,6 +1,7 @@
 ---
 - name: playbooks for apache server
   hosts: apache
-  user: ec2-user 
+  user: ec2-user
   roles:
+    - launch-ec2
     - apache
