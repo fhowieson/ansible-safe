@@ -1,0 +1,5 @@
+# Starting Apache Service
+- name: Starting Apache Service
+  become: yes
+  become_user: root
+  service: name=httpd state=started

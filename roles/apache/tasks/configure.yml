@@ -1,0 +1,13 @@
+---
+  # Configuring httpd.conf and sending sample file
+  - name: httpd.conf file
+    become: yes
+    become_user: root
+    copy: src=httpd.conf dest=/etc/httpd/conf/httpd.conf
+    notify:
+      restart apache service
+
+  - name: send index.html
+    become: yes
+    become_user: root
+    copy: src=index.html dest=/var/www/html/index.html
