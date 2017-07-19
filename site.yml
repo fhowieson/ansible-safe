@@ -3,5 +3,5 @@
   hosts: apache
   user: ec2-user
   roles:
-    - launch-ec2
+#    - ec2-launch
     - apache

@@ -1,0 +1,18 @@
+---
+# Installing httpd package
+
+- name: Launch AWS RHEL 7.3 Server
+  become: yes
+  become_user: root
+  ec2:
+    key_name: id_rsa
+    state: present
+    instance_type: t2.micro
+    image: ami-f1978897
+    wait: yes
+    count: 1
+    vpc_subnet_id: subnet-bd1b96e4
+    group: ansible_tutorial
+    region: eu-west-1
+    instance_tags: {"type":"apache"}
+    assign_public_ip: yes
