@@ -10,5 +10,11 @@
 #   - You can enter hostnames or ip addresses
 #   - A hostname/ip can be a member of multiple groups
 
+[localhost]
+local   ansible_connection=local
+
+[ec2-launch]
+local
+
 [apache]
-52.208.155.120
+52.51.204.143

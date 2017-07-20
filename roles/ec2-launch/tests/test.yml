@@ -1,5 +1,16 @@
 ---
-- hosts: localhost
-  remote_user: root
+- name: Launch or replace EC2 instances
+  hosts: local
+  connection: local
+  gather_facts: no
+  vars_files:
+    - custom.yml
   roles:
-    - ansible-aws-ec2-provisioning/
+    - role: ec2-launch
+
+- name: Test Ansible tasks
+  hosts: app
+  gather_facts: no
+  tasks:
+    - name: Test command
+      command: "ls"

@@ -1,0 +1,29 @@
+---
+# install file for ec2-launch
+
+- name: Launch instances
+  ec2:
+    key_name: id_rsa #"{{ ec2launch.keypair }}"
+    image: ami-f1978897 #"{{ ec2launch.ami }}"
+    group: sg-518f5a29 #"{{ ec2launch.groups }}"
+    instance_type: t2.micro #"{{ ec2launch.instance_type }}"
+    wait: true
+    region: eu-west-1 #"{{ ec2launch.region }}"
+    vpc_subnet_id: ami-f1978897 #"{{ ec2launch.subnet }}"
+#    instance_profile_name: "{{ ec2launch.iam_role }}"
+    instance_tags: "{{ ec2launch.tags }}"
+    assign_public_ip: yes
+#    volumes: "{{ ec2launch.volumes }}"
+    count: 1 #"{{ ec2launch.count }}"
+#    user_data: "{{ lookup('template', 'user_data.j2')|default('')}}"
+  register: launched
+  tags: launch
+
+- name: Wait for SSH to come up
+  wait_for:
+    host: "{{ item[ec2launch.check.ip] }}"
+    port: "{{ ec2launch.check.port }}"
+    delay: 60
+    timeout: 900
+    state: started
+  with_items: "{{ launched.instances }}"

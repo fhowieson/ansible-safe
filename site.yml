@@ -1,7 +1,15 @@
 ---
-- name: playbooks for apache server
-  hosts: all
+# This section allows you to launch and EC2 Server within allows
+
+- name: playbooks to launch an EC2 RHEL server on AWS
+  hosts: localhost
   user: ec2-user
   roles:
     - ec2-launch
+
+# This section installs and configures Apache with a demo web page
+- name: playbooks for apache server
+  hosts: apache
+  user: ec2-user
+  roles:
     - apache

@@ -1,2 +1,23 @@
 ---
-# defaults file for aws-ec2-provisioning/
+# defaults file for ec2-launch
+
+ec2launch:
+  relaunch: False
+  region: "eu-west-1"
+  groups: []
+  iam_role: ""
+  keypair: ""
+  ami: ""
+  subnet: ""
+  instance_type: "t1.micro"
+  volumes: []
+  elastic_ips: []
+  count: 1
+  tags:
+     Name: "apache"
+  check:
+    ip: public_ip
+    port: 22
+  inventory_group: app
+  ansible_user: ec2-user
+  ansible_key: "~/.ssh/id_rsa"
