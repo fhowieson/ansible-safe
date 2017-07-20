@@ -3,7 +3,8 @@
 
 - name: playbooks to launch an EC2 RHEL server on AWS
   hosts: localhost
-  user: ec2-user
+#  gather_facts: False
+#  user: ec2-user
   roles:
     - ec2-launch
 

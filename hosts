@@ -11,10 +11,11 @@
 #   - A hostname/ip can be a member of multiple groups
 
 [localhost]
-local   ansible_connection=local
+127.0.0.1   ansible_connection=local
 
+# Roles section
 [ec2-launch]
-local
+127.0.0.1
 
 [apache]
 52.51.204.143
