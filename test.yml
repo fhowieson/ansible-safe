@@ -1,0 +1,11 @@
+---
+# tasks file for test
+- name: Test
+  hosts: localhost
+  connection: local
+  gather_facts: true
+  tasks:
+    - debug: msg="Test"
+
+#- name: "Create folders ~/{{var}}/yyy"
+#  local_action: file path=~/{{ var }}/audit state=directory mode=0755 recurse=yes

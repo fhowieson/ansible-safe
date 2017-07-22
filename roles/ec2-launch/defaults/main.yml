@@ -20,4 +20,4 @@ ec2launch:
     port: 22
   inventory_group: app
   ansible_user: ec2-user
-  ansible_key: "~/.ssh/id_rsa"
+  ansible_key: "~/Documents/id_rsa"

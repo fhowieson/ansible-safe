@@ -5,11 +5,11 @@
   ec2:
     key_name: id_rsa #"{{ ec2launch.keypair }}"
     image: ami-f1978897 #"{{ ec2launch.ami }}"
-    group: sg-518f5a29 #"{{ ec2launch.groups }}"
+    group_id: sg-518f5a29 #"{{ ec2launch.groups }}"
     instance_type: t2.micro #"{{ ec2launch.instance_type }}"
     wait: true
     region: eu-west-1 #"{{ ec2launch.region }}"
-    vpc_subnet_id: ami-f1978897 #"{{ ec2launch.subnet }}"
+    vpc_subnet_id: subnet-bd1b96e4 #"{{ ec2launch.subnet }}"
 #    instance_profile_name: "{{ ec2launch.iam_role }}"
     instance_tags: "{{ ec2launch.tags }}"
     assign_public_ip: yes
