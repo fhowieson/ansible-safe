@@ -10,7 +10,8 @@ ansible --version
 And it should output something like:
 
 ```
-ansible 2.1.2.0
-  config file =
+ansible 2.3.1.0
+  config file = /Users/fen/Documents/GitHub/ansible-safe/ansible.cfg
   configured module search path = Default w/o overrides
+  python version = 2.7.10 (default, Feb  7 2017, 00:08:15) [GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.34)]
 ```
