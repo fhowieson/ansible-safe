@@ -16,6 +16,7 @@ ansible 2.3.1.0
   python version = 2.7.10 (default, Feb  7 2017, 00:08:15) [GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.34)]
 ```
 <h3>Install the AWS CLI.</h3>If sucsessfully installed you should be able to run this command:
+
 ```
 aws --version
 ```
