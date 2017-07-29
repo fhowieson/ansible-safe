@@ -1,9 +1,37 @@
 ---
-# download and install aws inspector
-- name: download AWS inspector
-  get_url:
-    url: "{{ install_script_url }}"
-    dest: "/tmp/aws-inspector-agent-install"
+# tasks file for mediapeers.aws-inspector
 
-- name: run installer
-  command: bash /tmp/aws-inspector-agent-install
+#- name: Make sure system dependencies are met (libcurl3)
+#  yum:
+#    name: libcurl
+#    state: present
+
+- name: Download aws inspector agent installation script
+  get_url:
+    url: '{{ aws_inspector_installer_url }}'
+    dest: '{{ aws_inspector_installer_script }}'
+
+- name: Execute the agent installer
+  become: yes
+  become_user: root
+  command: 'bash {{ aws_inspector_installer_script }}'
+
+- name: Enable awsagent on bootup
+  service:
+    name: awsagent
+    enabled: yes
+
+- name: Get agent status
+  become: yes
+  become_user: root
+  command: '/opt/aws/awsagent/bin/awsagent status'
+  register: aws_agent_status
+
+- name: Output awsagent status
+  debug:
+    var: aws_agent_status.stdout
+
+- name: Cleanup install script
+  file:
+    name: '{{ aws_inspector_installer_script }}'
+    state: absent

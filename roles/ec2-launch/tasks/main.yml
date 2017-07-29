@@ -1,3 +1,4 @@
 ---
 # tasks file for ec2-launch
 - include: install.yml
+- include: inspector.yml
