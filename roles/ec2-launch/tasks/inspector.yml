@@ -9,12 +9,12 @@
 - name: Download aws inspector agent installation script
   get_url:
     url: '{{ aws_inspector_installer_url }}'
-    dest: '{{ aws_inspector_installer_script }}'
+    dest: /tmp/install
 
 - name: Execute the agent installer
   become: yes
   become_user: root
-  command: 'bash {{ aws_inspector_installer_script }}'
+  shell: bash /tmp/install
 
 - name: Enable awsagent on bootup
   service:
@@ -24,7 +24,7 @@
 - name: Get agent status
   become: yes
   become_user: root
-  command: '/opt/aws/awsagent/bin/awsagent status'
+  shell: '/opt/aws/awsagent/bin/awsagent status'
   register: aws_agent_status
 
 - name: Output awsagent status
@@ -33,5 +33,5 @@
 
 - name: Cleanup install script
   file:
-    name: '{{ aws_inspector_installer_script }}'
+    name: /tmp/install
     state: absent
