@@ -21,4 +21,7 @@ ansible_python_interpreter=/usr/bin/python
 local
 
 [apache]
-52.51.204.143
+#52.211.209.204
+
+[rhel7-cis]
+34.251.54.51

@@ -21,3 +21,6 @@ ec2launch:
   inventory_group: app
   ansible_user: ec2-user
   ansible_key: "~/Documents/id_rsa"
+
+# AWS inspector location
+install_script_url: https://d1wk0tztpsntt1.cloudfront.net/linux/latest/install
