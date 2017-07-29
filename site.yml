@@ -15,3 +15,10 @@
   user: ec2-user
   roles:
     - apache
+
+# This section hardens a RHEL 7 Server
+- name: playbooks for hardening a RHEL7 server
+  hosts: rhel7-cis
+  user: ec2-user
+  roles:
+    - rhel7-cis
