@@ -1,0 +1,7 @@
+---
+# handlers file for aws-inspector
+
+- name: Restart inspector awsagent
+  service:
+    name: awsagent
+    state: restarted

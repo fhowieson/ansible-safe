@@ -6,15 +6,25 @@
 #    name: libcurl
 #    state: present
 
+- name: Create workspace Folder
+  become: yes
+  become_method: sudo
+  become_user: root
+  file:
+   path=/workspace/
+   owner=user
+   group=user
+   mode=0755
+   state=directory
+
 - name: Download aws inspector agent installation script
   get_url:
     url: "{{ install_script_url }}"
-    dest: "/tmp/aws-inspector-agent-install"
+    dest: "/workspace/aws-inspector-agent-install"
 
 - name: Execute the agent installer
   become: yes
-  become_user: root
-  shell: bash /tmp/aws-inspector-agent-install
+  shell: bash workspace/aws-inspector-agent-install
 
 - name: Enable awsagent on bootup
   service:
@@ -23,7 +33,6 @@
 
 - name: Get agent status
   become: yes
-  become_user: root
   shell: '/opt/aws/awsagent/bin/awsagent status'
   register: aws_agent_status
 
@@ -33,5 +42,5 @@
 
 - name: Cleanup install script
   file:
-    name: /tmp/install
+    name: /workspace/aws-inspector-agent-install
     state: absent

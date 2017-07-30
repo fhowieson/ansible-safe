@@ -21,6 +21,8 @@ ansible_python_interpreter=/usr/bin/python
 local
 
 [apache]
-#52.211.209.204
+34.249.1.116
 
 [rhel7-cis]
+
+[aws-inspector]

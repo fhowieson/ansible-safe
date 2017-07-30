@@ -1,7 +1,6 @@
 ---
 # This section allows you to launch and EC2 Server within allows
 
-
 - name: playbooks to launch an EC2 RHEL server on AWS
   hosts: localhost
   gather_facts: False
@@ -22,3 +21,10 @@
   user: ec2-user
   roles:
     - rhel7-cis
+
+# This section installs AWS Inspector
+- name: playbooks for installing AWS Inspector
+  hosts: servers
+  user: ec2-user
+  roles:
+    - aws-inspector

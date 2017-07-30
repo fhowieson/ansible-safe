@@ -1,7 +1,2 @@
 ---
 # handlers file for ec2-launch
-
-- name: Restart inspector awsagent
-  service:
-    name: awsagent
-    state: restarted
