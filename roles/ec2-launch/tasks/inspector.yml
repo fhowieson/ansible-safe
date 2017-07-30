@@ -8,13 +8,13 @@
 
 - name: Download aws inspector agent installation script
   get_url:
-    url: '{{ aws_inspector_installer_url }}'
-    dest: /tmp/install
+    url: "{{ install_script_url }}"
+    dest: "/tmp/aws-inspector-agent-install"
 
 - name: Execute the agent installer
   become: yes
   become_user: root
-  shell: bash /tmp/install
+  shell: bash /tmp/aws-inspector-agent-install
 
 - name: Enable awsagent on bootup
   service:
